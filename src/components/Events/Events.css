@@ -1,0 +1,377 @@
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gradient-primary);
+}
+
+.section-title p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Upcoming Events */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.event-card {
+  background-color: var(--dark-light);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+  box-shadow: var(--shadow-strong);
+  width: 100%; /* Ensure card takes up wrapper width */
+}
+
+.event-card:hover {
+  box-shadow: 0 15px 30px var(--shadow-medium);
+}
+
+.event-image {
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.event-date {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--gradient-primary);
+  color: var(--text);
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.event-date .day {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.event-date .month {
+  font-size: 0.9rem;
+}
+
+.event-price {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(13, 43, 51, 0.9);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+.event-content {
+  padding: 25px;
+}
+
+.event-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.event-content p {
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.event-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.event-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-ticket {
+  background: var(--gradient-primary);
+  color: var(--text);
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  /* Added for flex layout in new button container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-ticket:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
+/* Past Events */
+.past-events {
+  background-color: var(--dark-light);
+}
+
+.past-events-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.past-event-card {
+  background-color: var(--primary-dark);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-strong);
+}
+
+.past-event-image {
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.event-attendees {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(13, 43, 51, 0.9);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.past-event-content {
+  padding: 20px;
+}
+
+.past-event-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.past-event-content p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.btn-view-gallery {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-view-gallery:hover {
+  background: var(--primary);
+  color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+  .events-grid, .past-events-container {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .event-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* --- NEW STYLES ADDED BELOW --- */
+
+/* Wrapper to center the single event card */
+.upcoming-event-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Give the single card a max-width */
+.upcoming-event-wrapper .event-card {
+  max-width: 420px; /* Constrain width */
+}
+
+/* Container for the two buttons */
+.event-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* "More Info" button styled like a secondary button */
+.btn-more-info {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.btn-more-info:hover {
+  background: var(--primary);
+  color: var(--primary-dark);
+  box-shadow: 0 0 15px var(--shadow-medium);
+}
+
+/* On small screens, stack the buttons */
+@media (max-width: 480px) {
+  .event-card-actions {
+    grid-template-columns: 1fr; /* Single column */
+  }
+}
+
+/* --- NEW STYLES FOR PAST EVENTS EMPTY STATE --- */
+/* Add these styles to the end of your Events.css file */
+
+.past-events-empty-state {
+  background-color: var(--dark-light);
+  border: 1px dashed rgba(61, 185, 180, 0.2); /* Dashed border to look intentional */
+  border-radius: 15px;
+  padding: 4rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto; /* Center the block */
+  box-shadow: var(--shadow-strong);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  display: block;
+  opacity: 0.7;
+}
+
+.past-events-empty-state h3 {
+  font-size: 1.75rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.past-events-empty-state p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto 2rem auto; /* Center text and add margin-bottom */
+}
+
+/* A link styled to look like your secondary buttons */
+.btn-secondary-link {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-secondary-link:hover {
+  background: var(--primary);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px var(--shadow-medium);
+}
+
+/* Responsive for the empty state */
+@media (max-width: 576px) {
+  .past-events-empty-state {
+    padding: 2.5rem 2rem;
+  }
+  .empty-state-icon {
+    font-size: 2.5rem;
+  }
+  .past-events-empty-state h3 {
+    font-size: 1.5rem;
+  }
+  .past-events-empty-state p {
+    font-size: 0.95rem;
+  }
+}

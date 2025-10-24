@@ -1,0 +1,232 @@
+.footer {
+  background-color: var(--dark-light);
+  padding: 80px 0 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233db9b4' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* --- MODIFIED: 3-Column Layout --- */
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr; /* 3 columns */
+  gap: 40px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-column h4 {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- NEW: Secondary heading for "Legal" --- */
+.footer-heading-secondary {
+  font-size: 1rem;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
+
+.footer-column h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-primary);
+}
+
+/* --- NEW: Logo Styles --- */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.footer-logo-image {
+  height: 3.5rem; /* Small logo */
+  width: 3.5rem;
+  object-fit: cover;
+}
+
+.footer-logo h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.footer-logo h3 span {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- MODIFIED: Renamed from .footer-logo p --- */
+.footer-tagline {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(61, 185, 180, 0.3);
+}
+
+.social-link:hover {
+  background: var(--gradient-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block; /* Fixes transform */
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.contact-info i {
+  color: var(--primary);
+  width: 16px;
+  margin-top: 5px; /* Aligns with text */
+}
+
+/* Style email as a link */
+.contact-info a {
+  color: var(--text-secondary);
+  word-break: break-all;
+}
+.contact-info a:hover {
+  color: var(--primary);
+  transform: none; /* No push on email */
+}
+
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Added for mobile */
+  gap: 10px; /* Added for mobile */
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* --- NEW: Hide desktop tagline on mobile --- */
+.footer-bottom-tagline {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  /* --- MODIFIED: Stack to 1 column on tablet --- */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center; /* Center all content */
+  }
+
+  .footer-column h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+  
+  .contact-info li {
+    justify-content: center;
+  }
+  
+  .contact-info i {
+    margin-top: 6px; /* Re-align for center */
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0 20px;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  /* --- NEW: Hide desktop tagline on mobile --- */
+  .footer-bottom-tagline {
+    display: none;
+  }
+  
+  /* --- Show mobile tagline (already exists) --- */
+  .footer-tagline {
+    display: block;
+  }
+}

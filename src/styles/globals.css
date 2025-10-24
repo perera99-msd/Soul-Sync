@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap');
+
+/* DARKER BLACK-THEMED COLOR PALETTE */
+:root {
+  /* Primary Colors - Kept as is */
+  --primary-dark: #030f14; /* Made even darker */
+  --primary: #3DB9B4;
+  --primary-light: #68E0CF;
+  --accent: #54A1A2;
+  
+  /* Extended Palette - Kept as is */
+  --secondary: #00c9b7;
+  --accent-bright: #00e5ff;
+  --accent-deep: #0099cc;
+  
+  /* Enhanced Dark Gradients - Based on new black theme */
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+  --gradient-secondary: linear-gradient(135deg, var(--secondary), var(--accent-bright));
+  --gradient-dark: linear-gradient(135deg, var(--dark-light), var(--accent-deep)); /* Changed from #030f14 */
+  --gradient-hero: linear-gradient(135deg, var(--dark-light), var(--primary)); /* Changed from #030f14 */
+  
+  /* Much Darker Theme - Changed to neutral blacks/grays */
+  --dark: #000000; /* Pure black */
+  --dark-light: #0a0a0a; /* Darker gray */
+  --dark-lighter: #141414; /* Darker gray */
+  
+  /* Text Colors - Enhanced for Better Readability */
+  --text: #FFFFFF;
+  --text-secondary: #e2e8f0; /* Brighter for better contrast */
+  --text-muted: #999999; /* Changed to neutral gray */
+  
+  /* Enhanced Shadows for Dark Theme */
+  --shadow-light: rgba(61, 185, 180, 0.2); 
+  --shadow-medium: rgba(61, 185, 180, 0.4); 
+  --shadow-dark: rgba(61, 185, 180, 0.6); 
+  --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.5); 
+  
+  /* Utility Colors */
+  --success: #00ff95;
+  --warning: #ffcc00;
+  --danger: #ff3860;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--dark); /* Changed to darkest black */
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); 
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(61, 185, 180, 0.5); 
+}
+
+.btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--text);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px var(--shadow-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: var(--primary-dark);
+  box-shadow: 0 0 15px var(--shadow-medium);
+}
+
+/* Enhanced Scrollbar for Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark); /* Darker track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}
+
+/* Additional Global Text Enhancements for Readability */
+p, li, span {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for better readability */
+}
+
+a {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Links also get shadow */
+}

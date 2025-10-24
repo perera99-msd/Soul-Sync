@@ -1,0 +1,201 @@
+.featured-event {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.featured-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.25) contrast(1.3) saturate(1.2); /* Maximum video clarity */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.08); /* Almost invisible overlay */
+  z-index: 2;
+}
+
+.featured-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--text);
+  max-width: 500px; /* Even more compact */
+  padding: 0 15px;
+  backdrop-filter: blur(1px); /* Minimal blur */
+  background: rgba(0, 0, 0, 0.1); /* Very transparent */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.03); /* Very subtle border */
+}
+
+.featured-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 25px rgba(0, 0, 0, 0.95); /* Strong shadow for readability */
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.featured-meta {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
+  text-shadow: 1px 1px 12px rgba(0, 0, 0, 0.9); /* Strong shadow */
+  padding: 6px 0;
+}
+
+.meta-item i {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.featured-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-read-details,
+.btn-buy-tickets {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Montserrat', sans-serif;
+  backdrop-filter: blur(1px);
+  min-height: 40px;
+}
+
+.btn-read-details {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-read-details:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-buy-tickets {
+  background: var(--gradient-primary);
+  color: var(--text);
+}
+
+.btn-buy-tickets:hover {
+  background: var(--gradient-primary-hover);
+}
+
+/* Header Blur Effect */
+.header.featured-blur {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(10px) brightness(0.8) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .featured-event {
+    height: 90vh;
+    min-height: 500px;
+  }
+
+  .featured-content {
+    max-width: 90%;
+    padding: 15px 12px;
+    margin: 8px;
+  }
+
+  .featured-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .meta-item {
+    font-size: 0.8rem;
+  }
+  
+  .featured-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .btn-read-details,
+  .btn-buy-tickets {
+    width: 180px;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-event {
+    min-height: 450px;
+  }
+
+  .featured-content {
+    padding: 12px 10px;
+    margin: 5px;
+  }
+
+  .featured-title {
+    font-size: 1.2rem;
+  }
+  
+  .meta-item {
+    font-size: 0.75rem;
+  }
+  
+  .btn-read-details,
+  .btn-buy-tickets {
+    width: 160px;
+    padding: 7px 14px;
+  }
+}

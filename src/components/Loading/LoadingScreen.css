@@ -1,0 +1,226 @@
+
+:root {
+  --primary-dark: #111;
+  --primary-dark-lighter: #1f1f1f; /* Added a slightly lighter dark shade */
+  --primary: #00bcd4;
+  --primary-light: #80deea;
+  --accent-bright: #ff4081;
+  --text: #ffffff;
+  --text-secondary: #aaa;
+  --dark-light: rgba(255, 255, 255, 0.1);
+  --gradient-primary: linear-gradient(90deg, var(--primary), var(--accent-bright));
+}
+
+
+/* Assume Orbitron font is imported */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Fallback color */
+  background-color: var(--primary-dark, #111);
+  /* --- NEW PREMIUM GRADIENT BACKGROUND --- */
+  background: radial-gradient(ellipse at center, 
+    var(--primary-dark-lighter, #1f1f1f) 0%, 
+    var(--primary-dark, #111) 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* This transition handles the FINAL fade-out of the whole screen */
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* This new container holds all the loading elements (Phase 1) */
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  /* This fades out the loading content */
+  transition: opacity 0.5s ease;
+}
+
+/* --- New Premium Spinner --- */
+.spinner-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* This is the SOULSYNC text from your first file */
+.spinner-logo {
+  font-size: 2rem;
+  color: var(--text);
+  text-align: center;
+  z-index: 10;
+  font-weight: 800;
+  font-family: 'Orbitron', sans-serif;
+  position: absolute;
+}
+
+.spinner-logo span {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* These are the new "chasing" arcs */
+.spinner-arc {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  /* Premium Easing */
+  animation: rotate 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.spinner-arc:nth-child(2) {
+  width: 100%;
+  height: 100%;
+  border-top-color: var(--primary);
+  animation-delay: -0.4s;
+}
+.spinner-arc:nth-child(3) {
+  width: 80%;
+  height: 80%;
+  border-right-color: var(--primary-light);
+  animation-delay: -0.2s;
+}
+.spinner-arc:nth-child(4) {
+  width: 60%;
+  height: 60%;
+  border-bottom-color: var(--accent-bright);
+  animation-delay: 0s;
+}
+
+
+/* --- Text and Progress Bar --- */
+.loading-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loading-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  /* Breathing animation */
+  animation: breathe 2.5s ease-in-out infinite;
+}
+
+.loading-progress {
+  width: 220px;
+  height: 4px;
+  background-color: var(--dark-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* --- Final Logo (Phase 2) --- */
+.final-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10000;
+  /* Start hidden and slightly scaled down for a smooth pop-in */
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* --- ADJUSTED SMALLER SIZE --- */
+/* (This is ~1.25x the original 533px, smaller than 800px) */
+.final-logo .logo-image {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5));
+}
+
+/* --- STATE CHANGE --- */
+
+/* When .logo-visible is added... */
+
+/* 1. Fade OUT the loading content */
+.loading-screen.logo-visible .loading-content {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 2. Fade IN the final logo */
+.loading-screen.logo-visible .final-logo {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* --- KEYFRAMES --- */
+
+/* Spinner animation */
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Breathing text animation */
+@keyframes breathe {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 576px) {
+  .spinner-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .spinner-logo {
+    font-size: 1.5rem;
+  }
+  
+  .loading-text {
+    font-size: 0.9rem;
+  }
+  
+  .loading-progress {
+    width: 180px;
+  }
+
+  /* --- ADJUSTED SMALLER MOBILE SIZE --- */
+  .final-logo .logo-image {
+    width: 400px;
+    height: 400px;
+  }
+}

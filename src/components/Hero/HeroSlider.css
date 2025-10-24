@@ -1,0 +1,678 @@
+/* HeroSlider.css - DARKER PREMIUM ENHANCED VERSION */
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+  background: var(--dark); /* Will now be pure black from globals.css */
+  margin: 0;
+  padding: 0;
+}
+
+.slider-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.slider {
+  height: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+/* Premium Enhanced Slide with Sharper Image Quality */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 120px;
+  padding-bottom: 140px;
+  will-change: transform, opacity;
+  margin: 0;
+  /* Enhanced sharp image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality; /* Changed from crisp-edges */
+  image-rendering: auto; /* Changed from pixelated */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  filter: brightness(1.1) contrast(1.1); /* Enhanced visibility */
+}
+
+/* Much Darker Overlay for Premium Black Theme */
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.85) 0%, /* Changed from dark cyan and made more transparent */
+    rgba(0, 0, 0, 0.65) 40%, /* Changed from dark cyan and made more transparent */
+    rgba(0, 0, 0, 0.75) 100% /* Changed from dark cyan and made more transparent */
+  );
+  z-index: 1;
+}
+
+/* Enhanced Darker Gradient Overlays */
+.gradient-overlay-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.95) 0%, /* Changed from dark cyan */
+    rgba(0, 0, 0, 0.7) 40%, /* Changed from dark cyan */
+    rgba(0, 0, 0, 0.4) 70%, /* Changed from dark cyan */
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.gradient-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.95) 0%, /* Changed from dark cyan */
+    rgba(0, 0, 0, 0.75) 30%, /* Changed from dark cyan */
+    rgba(0, 0, 0, 0.5) 70%, /* Changed from dark cyan */
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Additional Dark Overlay for Extra Premium Black Effect */
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15); /* Darker overlay, reduced opacity for image visibility */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Enhanced Slide Content with Better Text Visibility */
+.slide-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding-left: 12%;
+  padding-right: 2rem;
+  width: 100%;
+}
+
+.slide-badge {
+  display: inline-block;
+  padding: 0.5rem 1.3rem;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 25px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  box-shadow: 0 8px 25px var(--shadow-medium);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.slide-content h1 {
+  font-size: 3.0rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 80px rgba(61, 185, 180, 0.6); 
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  word-wrap: break-word;
+}
+
+.slide-content .slide-tagline {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 25px rgba(0, 0, 0, 0.6); 
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.slide-content p {
+  font-size: 1rem;
+  margin-bottom: 1.8rem;
+  color: var(--text-secondary); 
+  max-width: 550px;
+  line-height: 1.6;
+  font-weight: 400; 
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5); 
+}
+
+.slide-actions {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.btn-premium {
+  padding: 0.9rem 2.0rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  z-index: 1;
+  min-height: 48px;
+  flex-shrink: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); 
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.btn-premium:hover::before {
+  left: 100%;
+}
+
+.btn-premium-primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: 
+    0 12px 30px rgba(61, 185, 180, 0.4), 
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.btn-premium-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 20px 40px rgba(61, 185, 180, 0.5), 
+    0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.btn-premium-secondary {
+  background: rgba(255, 255, 255, 0.1); 
+  color: var(--text);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-premium-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced Navigation Dots - Darker Theme */
+.slider-nav {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.5); /* Changed from dark cyan */
+  backdrop-filter: blur(20px) brightness(0.8);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25); 
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.dot-progress {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  transition: left 6s linear;
+}
+
+.slider-dot.active .dot-progress {
+  left: 0%;
+  animation: dotProgress 6s linear forwards;
+}
+
+@keyframes dotProgress {
+  0% { left: -100%; }
+  100% { left: 0%; }
+}
+
+.slider-dot.active {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6); 
+  transform: scale(1.3);
+}
+
+.slider-dot:hover {
+  transform: scale(1.4);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Enhanced Arrows - Darker Theme */
+.slider-arrows {
+  position: absolute;
+  bottom: 30px;
+  right: 8%;
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.5); /* Changed from dark cyan */
+  backdrop-filter: blur(20px) brightness(0.8);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider-arrow {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12); 
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  color: var(--text);
+  font-size: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.slider-arrow:hover {
+  background: var(--gradient-primary);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 25px 50px rgba(61, 185, 180, 0.5); 
+  color: white;
+}
+
+/* Enhanced Slide Counter - Darker Theme */
+.slide-counter {
+  position: absolute;
+  bottom: 30px;
+  left: 8%;
+  z-index: 10;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(0, 0, 0, 0.5); /* Changed from dark cyan */
+  backdrop-filter: blur(20px) brightness(0.8);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.current-slide {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(61, 185, 180, 0.5);
+}
+
+.total-slides {
+  color: var(--text-secondary); 
+  font-size: 0.9rem;
+}
+
+/* Enhanced Mobile Layout Fixes */
+@media (max-width: 1200px) {
+  .slide-content {
+    padding-left: 10%;
+    max-width: 600px;
+  }
+  
+  .slide-content h1 {
+    font-size: 2.8rem;
+  }
+  
+  .slider-arrows {
+    right: 5%;
+  }
+  
+  .slide-counter {
+    left: 5%;
+  }
+}
+
+@media (max-width: 992px) {
+  .slide {
+    padding-top: 100px;
+    padding-bottom: 120px;
+    background-attachment: scroll;
+  }
+  
+  .slide-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .slide-content .slide-tagline {
+    font-size: 1.2rem;
+  }
+  
+  .slide-content p {
+    font-size: 0.95rem;
+  }
+  
+  .slide-content {
+    padding-left: 8%;
+  }
+  
+  .slider-nav,
+  .slider-arrows,
+  .slide-counter {
+    bottom: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 700px;
+  }
+  
+  .slide {
+    padding-top: 100px;
+    padding-bottom: 180px;
+    justify-content: center;
+    background-attachment: scroll;
+    filter: brightness(1.15) contrast(1.15); 
+  }
+  
+  .slide-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .slide-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  
+  .slide-content .slide-tagline {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+  
+  .slide-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500; 
+  }
+  
+  .slide-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .btn-premium {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 280px;
+    min-width: 200px;
+  }
+  
+  /* Enhanced Mobile Controls Layout */
+  .slider-nav {
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .slider-arrows {
+    bottom: 30px;
+    right: 50%;
+    transform: translateX(50%);
+    gap: 2rem;
+  }
+  
+  /* HIDE COUNTER ON MOBILE */
+  .slide-counter {
+    display: none;
+  }
+  
+  .gradient-overlay-left {
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.9) 0%, /* Changed from dark cyan */
+      rgba(0, 0, 0, 0.6) 40%, /* Changed from dark cyan */
+      rgba(0, 0, 0, 0.3) 70%, /* Changed from dark cyan */
+      transparent 100%
+    );
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    min-height: 650px;
+  }
+  
+  .slide {
+    padding-top: 90px;
+    padding-bottom: 170px;
+  }
+  
+  .slide-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .slide-content h1 {
+    font-size: 2.0rem;
+  }
+
+  .slide-content .slide-tagline {
+    font-size: 1.0rem;
+  }
+  
+  .slide-content p {
+    font-size: 0.9rem;
+  }
+  
+  .slide-badge {
+    font-size: 0.7rem;
+    padding: 0.5rem 1.2rem;
+  }
+  
+  /* Refined Mobile Controls */
+  .slider-nav {
+    bottom: 110px;
+    padding: 0.7rem 1rem;
+  }
+  
+  .slider-dot {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .slider-arrows {
+    bottom: 25px;
+    gap: 1.5rem;
+  }
+  
+  /* Counter remains hidden on mobile */
+  .slide-counter {
+    display: none;
+  }
+  
+  .slider-arrow {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+  .hero {
+    min-height: 600px;
+  }
+  
+  .slide {
+    padding-top: 80px;
+    padding-bottom: 160px;
+  }
+  
+  .slide-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .slide-content .slide-tagline {
+    font-size: 0.9rem;
+  }
+
+  .slide-content p {
+    font-size: 0.85rem;
+  }
+  
+  .slide-actions {
+    gap: 0.8rem;
+  }
+
+  .btn-premium {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+    min-height: 44px;
+  }
+
+  /* Final mobile controls adjustment */
+  .slider-nav {
+    bottom: 100px;
+    gap: 8px;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .slider-arrows {
+    bottom: 20px;
+    gap: 1.2rem;
+  }
+  
+  /* Counter remains hidden on mobile */
+  .slide-counter {
+    display: none;
+  }
+  
+  .slider-arrow {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Welcome slide specific styling */
+.slide.slide-welcome {
+  padding-bottom: 180px;
+}
+
+/* Safe area support for notched phones */
+@supports(padding: max(0px)) {
+  .slide-content {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  
+  .slider-nav,
+  .slider-arrows {
+    margin-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .slider-dot:hover,
+  .slider-arrow:hover,
+  .btn-premium:hover {
+    transform: none;
+  }
+  
+  .slider-dot:active,
+  .slider-arrow:active,
+  .btn-premium:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Premium Image Enhancement Classes */
+.premium-image {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
