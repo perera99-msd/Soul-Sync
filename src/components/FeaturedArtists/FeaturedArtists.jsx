@@ -11,11 +11,11 @@ const FeaturedArtists = () => {
       name: "Echo Daft",
       role: "Main",
       setTime: "All Night Long",
-      image: "/api/placeholder/150/150",
+      image: "/artists/echo.png",
       socials: {
-        instagram: "#",
-        soundcloud: "#",
-        spotify: "#"
+        instagram: "https://www.instagram.com/echodaft/",
+        soundcloud: "https://soundcloud.com/echodaftofficial",
+        spotify: "https://open.spotify.com/artist/4KWx4BGNsCxGoZAZEfkrqK"
       }
     },
     {
@@ -23,11 +23,11 @@ const FeaturedArtists = () => {
       name: "Liam Sieker",
       role: "Support",
       setTime: "22:00 - 00:00",
-      image: "/api/placeholder/150/150",
+      image: "/artists/liam.png",
       socials: {
-        instagram: "#",
-        soundcloud: "#",
-        spotify: "#"
+        instagram: "https://www.instagram.com/liamsieker/",
+        soundcloud: "https://soundcloud.com/liam-sieker",
+        spotify: "https://open.spotify.com/artist/0R8lLZON6M1wdIU0dIvK86"
       }
     },
     {
@@ -35,11 +35,10 @@ const FeaturedArtists = () => {
       name: "Audio Theft",
       role: "Opening",
       setTime: "20:00 - 22:00",
-      image: "/api/placeholder/150/150",
+      image: "/artists/Audio.png",
       socials: {
-        instagram: "#",
-        soundcloud: "#",
-        spotify: "#"
+        soundcloud: "https://soundcloud.com/audiotheft"
+        // Instagram and Spotify hidden as requested
       }
     }
   ];
@@ -90,7 +89,7 @@ const FeaturedArtists = () => {
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
         >
-          {artists.map((artist, index) => (
+          {artists.map((artist) => (
             <motion.div
               key={artist.id}
               className="artist-card"
@@ -99,6 +98,15 @@ const FeaturedArtists = () => {
             >
               <div className="artist-image-container">
                 <div className="artist-image">
+                  <img 
+                    src={artist.image} 
+                    alt={artist.name}
+                    className="artist-photo"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
                   <div className="image-placeholder">
                     <i className="fas fa-music"></i>
                   </div>
@@ -113,15 +121,42 @@ const FeaturedArtists = () => {
                 <p className="artist-set-time">{artist.setTime}</p>
                 
                 <div className="artist-socials">
-                  <a href={artist.socials.instagram} className="social-icon">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href={artist.socials.soundcloud} className="social-icon">
-                    <i className="fab fa-soundcloud"></i>
-                  </a>
-                  <a href={artist.socials.spotify} className="social-icon">
-                    <i className="fab fa-spotify"></i>
-                  </a>
+                  {/* Echo Daft - Show all socials */}
+                  {artist.id === 1 && (
+                    <>
+                      <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <i className="fab fa-instagram"></i>
+                      </a>
+                      <a href={artist.socials.soundcloud} target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <i className="fab fa-soundcloud"></i>
+                      </a>
+                      <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <i className="fab fa-spotify"></i>
+                      </a>
+                    </>
+                  )}
+                  
+                  {/* Liam Sieker - Show all socials */}
+                  {artist.id === 2 && (
+                    <>
+                      <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <i className="fab fa-instagram"></i>
+                      </a>
+                      <a href={artist.socials.soundcloud} target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <i className="fab fa-soundcloud"></i>
+                      </a>
+                      <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <i className="fab fa-spotify"></i>
+                      </a>
+                    </>
+                  )}
+                  
+                  {/* Audio Theft - Only show SoundCloud */}
+                  {artist.id === 3 && (
+                    <a href={artist.socials.soundcloud} target="_blank" rel="noopener noreferrer" className="social-icon">
+                      <i className="fab fa-soundcloud"></i>
+                    </a>
+                  )}
                 </div>
               </div>
 
