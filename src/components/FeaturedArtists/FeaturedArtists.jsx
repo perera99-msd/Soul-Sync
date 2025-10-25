@@ -9,11 +9,10 @@ const FeaturedArtists = () => {
     {
       id: 1,
       name: "Echo Daft",
-      role: "Main",
-      setTime: "All Night Long",
+      role: "Headliner",
       image: "/artists/echo.png",
       socials: {
-        instagram: "https://www.instagram.com/echodaft/",
+        instagram: "https://www.instagram.com/echo_daft_official?igsh=MTU4ZGpzc3Y5c3VtbA%3D%3D",
         soundcloud: "https://soundcloud.com/echodaftofficial",
         spotify: "https://open.spotify.com/artist/4KWx4BGNsCxGoZAZEfkrqK"
       }
@@ -22,7 +21,6 @@ const FeaturedArtists = () => {
       id: 2,
       name: "Liam Sieker",
       role: "Support",
-      setTime: "22:00 - 00:00",
       image: "/artists/liam.png",
       socials: {
         instagram: "https://www.instagram.com/liamsieker/",
@@ -33,12 +31,10 @@ const FeaturedArtists = () => {
     {
       id: 3,
       name: "Audio Theft",
-      role: "Opening",
-      setTime: "20:00 - 22:00",
-      image: "/artists/Audio.png",
+      role: "Opening Act",
+      image: "/artists/audio.jpeg",
       socials: {
         soundcloud: "https://soundcloud.com/audiotheft"
-        // Instagram and Spotify hidden as requested
       }
     }
   ];
@@ -48,19 +44,20 @@ const FeaturedArtists = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.3
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 60, scale: 0.9 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
       }
     }
   };
@@ -71,15 +68,15 @@ const FeaturedArtists = () => {
         <motion.div
           ref={ref}
           className="artists-header"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h2 className="section-title">
             Featured <span className="text-gradient">Artists</span>
           </h2>
           <p className="section-subtitle">
-            Experience the incredible talent behind our events
+            Experience the extraordinary talent shaping our sonic landscape
           </p>
         </motion.div>
 
@@ -94,73 +91,85 @@ const FeaturedArtists = () => {
               key={artist.id}
               className="artist-card"
               variants={cardVariants}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              whileHover={{ 
+                y: -15,
+                scale: 1.02,
+                transition: { duration: 0.4, ease: "easeOut" }
+              }}
             >
-              <div className="artist-image-container">
-                <div className="artist-image">
-                  <img 
-                    src={artist.image} 
-                    alt={artist.name}
-                    className="artist-photo"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextElementSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="image-placeholder">
-                    <i className="fas fa-music"></i>
+              <div className="artist-card-inner">
+                <div className="artist-image-container">
+                  <div className="artist-image-wrapper">
+                    <img 
+                      src={artist.image} 
+                      alt={artist.name}
+                      className="artist-photo"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="image-placeholder">
+                      <i className="fas fa-music"></i>
+                    </div>
+                    <div className="image-overlay"></div>
+                  </div>
+                  
+                  <div className="artist-role-badge">
+                    <span>{artist.role}</span>
+                  </div>
+
+                  <div className="artist-glow-effect"></div>
+                </div>
+
+                <div className="artist-content">
+                  <div className="artist-name-wrapper">
+                    <h3 className="artist-name">{artist.name}</h3>
+                    <div className="name-underline"></div>
+                  </div>
+
+                  <div className="artist-socials">
+                    {artist.socials.instagram && (
+                      <motion.a 
+                        href={artist.socials.instagram} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="social-icon"
+                        whileHover={{ scale: 1.2, y: -2 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <i className="fab fa-instagram"></i>
+                      </motion.a>
+                    )}
+                    {artist.socials.soundcloud && (
+                      <motion.a 
+                        href={artist.socials.soundcloud} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="social-icon"
+                        whileHover={{ scale: 1.2, y: -2 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <i className="fab fa-soundcloud"></i>
+                      </motion.a>
+                    )}
+                    {artist.socials.spotify && (
+                      <motion.a 
+                        href={artist.socials.spotify} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="social-icon"
+                        whileHover={{ scale: 1.2, y: -2 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <i className="fab fa-spotify"></i>
+                      </motion.a>
+                    )}
                   </div>
                 </div>
-                <div className="artist-role-badge">
-                  {artist.role}
-                </div>
-              </div>
 
-              <div className="artist-info">
-                <h3 className="artist-name">{artist.name}</h3>
-                <p className="artist-set-time">{artist.setTime}</p>
-                
-                <div className="artist-socials">
-                  {/* Echo Daft - Show all socials */}
-                  {artist.id === 1 && (
-                    <>
-                      <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <i className="fab fa-instagram"></i>
-                      </a>
-                      <a href={artist.socials.soundcloud} target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <i className="fab fa-soundcloud"></i>
-                      </a>
-                      <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <i className="fab fa-spotify"></i>
-                      </a>
-                    </>
-                  )}
-                  
-                  {/* Liam Sieker - Show all socials */}
-                  {artist.id === 2 && (
-                    <>
-                      <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <i className="fab fa-instagram"></i>
-                      </a>
-                      <a href={artist.socials.soundcloud} target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <i className="fab fa-soundcloud"></i>
-                      </a>
-                      <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <i className="fab fa-spotify"></i>
-                      </a>
-                    </>
-                  )}
-                  
-                  {/* Audio Theft - Only show SoundCloud */}
-                  {artist.id === 3 && (
-                    <a href={artist.socials.soundcloud} target="_blank" rel="noopener noreferrer" className="social-icon">
-                      <i className="fab fa-soundcloud"></i>
-                    </a>
-                  )}
-                </div>
+                <div className="card-background-glow"></div>
               </div>
-
-              <div className="artist-glow"></div>
             </motion.div>
           ))}
         </motion.div>
