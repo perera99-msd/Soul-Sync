@@ -11,7 +11,7 @@ const FeaturedArtists = () => {
       name: "Echo Daft",
       image: "/artists/echo.png",
       socials: {
-        instagram: "https://www.instagram.com/echo_daft_official?igsh=MTU4ZGpzc3Y5c3VtbA%3D%3D",
+        instagram: "https://www.instagram.com/echo_daft_official?igsh",
         soundcloud: "https://soundcloud.com/echodaftofficial",
         spotify: "https://open.spotify.com/artist/4KWx4BGNsCxGoZAZEfkrqK"
       }
