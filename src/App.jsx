@@ -3,6 +3,7 @@ import LoadingScreen from './components/Loading/LoadingScreen';
 import Header from './components/Header/Header';
 import HeroSlider from './components/Hero/HeroSlider';
 import FeaturedEvent from './components/FeaturedEvent/FeaturedEvent';
+import FeaturedArtists from './components/FeaturedArtists/FeaturedArtists'; // New import
 import AboutUs from './components/AboutUs/AboutUs';
 import UpcomingEvents from './components/Events/UpcomingEvents';
 import PastEvents from './components/Events/PastEvents';
@@ -62,8 +63,8 @@ function App() {
       <main>
         <HeroSlider />
         <FeaturedEvent onEventDetailsClick={handleEventDetailsClick} />
+        <FeaturedArtists /> {/* New Featured Artists Component */}
         <AboutUs />
-        {/* --- MODIFIED: Passed onEventDetailsClick prop --- */}
         <UpcomingEvents onEventDetailsClick={handleEventDetailsClick} />
         <PastEvents />
         <Gallery />
