@@ -3,7 +3,7 @@ import LoadingScreen from './components/Loading/LoadingScreen';
 import Header from './components/Header/Header';
 import HeroSlider from './components/Hero/HeroSlider';
 import FeaturedEvent from './components/FeaturedEvent/FeaturedEvent';
-import FeaturedArtists from './components/FeaturedArtists/FeaturedArtists'; // New import
+import FeaturedArtists from './components/FeaturedArtists/FeaturedArtists';
 import AboutUs from './components/AboutUs/AboutUs';
 import UpcomingEvents from './components/Events/UpcomingEvents';
 import PastEvents from './components/Events/PastEvents';
@@ -13,6 +13,7 @@ import Footer from './components/Footer/Footer';
 import LoginModal from './components/Modals/LoginModal';
 import RegisterModal from './components/Modals/RegisterModal';
 import EventModal from './components/Modals/EventModal';
+import AnnouncementPopup from './components/Popups/AnnouncementPopup'; // Add this import
 import './styles/globals.css';
 import './styles/animations.css';
 
@@ -63,7 +64,7 @@ function App() {
       <main>
         <HeroSlider />
         <FeaturedEvent onEventDetailsClick={handleEventDetailsClick} />
-        <FeaturedArtists /> {/* New Featured Artists Component */}
+        <FeaturedArtists />
         <AboutUs />
         <UpcomingEvents onEventDetailsClick={handleEventDetailsClick} />
         <PastEvents />
@@ -72,6 +73,9 @@ function App() {
       </main>
 
       <Footer />
+
+      {/* Add the Announcement Popup here */}
+      <AnnouncementPopup />
 
       <LoginModal
         isOpen={activeModal === 'login'}
