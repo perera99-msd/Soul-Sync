@@ -92,3 +92,5 @@ MIT License
 **Soul Sync Events**  
 Melbourne, Australia 🇦🇺  
 *Let the beat unite us!*
+
+Site URL - https://soulsyncevents.com.au/ Hosted in Cloudfare Pages . also Connected a Custom domain
